@@ -17,9 +17,11 @@ function medirDistancia () {
     )
     basic.showNumber(distancia)
     basic.pause(1000)
-    if (distancia < 20) {
+    if (distancia != 0 && distancia < 20) {
         alerta = 1
         avisarAlerta()
+    } else {
+        alerta = 0
     }
     basic.pause(200)
 }
@@ -40,5 +42,6 @@ basic.forever(function () {
             music.play(music.tonePlayable(262, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
             basic.pause(100)
         }
+        medirDistancia()
     }
 })
